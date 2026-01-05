@@ -1,0 +1,43 @@
+# Please read https://github.com/Rongronggg9/RSS-to-Telegram-Bot/blob/master/docs/deployment-guide.md for more details.
+services:
+  main:
+    image: rongronggg9/rss-to-telegram
+    restart: unless-stopped
+    volumes:
+      - config:/app/config
+    environment:
+      - API_HASH
+      - API_ID
+      - MANAGER
+      - TABLE_TO_IMAGE=1  # default: 0
+      - TOKEN
+      #- ERROR_LOGGING_CHAT=-1001234567890  # default: the first MANAGER
+      #- MULTIUSER=0  # default: 1
+      #- CRON_SECOND=30  # 0-59, default: 0
+      #- DATABASE_URL=postgres://username:password@host:port/db_name  # default: sqlite:/path/to/config/db.sqlite3
+      #- IMG_RELAY_SERVER=https://wsrv.nl/?url=  # default: https://rsstt-img-relay.rongrong.workers.dev/
+      #- IMAGES_WESERV_NL=https://t0.nl/  # default: https://wsrv.nl/
+      #- USER_AGENT=Mozilla/5.0  # default: RSStT/* RSS Reader (+https://git.io/RSStT)
+      #- IPV6_PRIOR=1  # default: 0
+      #- VERIFY_TLS=0  # default: 1
+      #- T_PROXY=socks5://172.17.0.1:1080  # Proxy used to connect to the Telegram API
+      #- R_PROXY=socks5://172.17.0.1:1080  # Proxy used to fetch feeds
+      #- PROXY_BYPASS_PRIVATE=1  # default: 0
+      #- PROXY_BYPASS_DOMAINS=example.com;example.net
+      #- HTTP_TIMEOUT=30  # default: 12
+      #- HTTP_CONCURRENCY=0  # default: 1024
+      #- HTTP_CONCURRENCY_PER_HOST=0  # default: 16
+      #- HTTP_MAX_LINE_SIZE=32768  # default: 16384
+      #- HTTP_MAX_FIELD_SIZE=32768  # default: 16384
+      #- TRAFFIC_SAVING=1  # default: 0
+      #- LAZY_MEDIA_VALIDATION=1  # default: 0
+      #- MANAGER_PRIVILEGED=1  # default: 0
+      #- NO_UVLOOP=1  # default: 0
+      #- MULTIPROCESSING=1  # default: 0
+      #- EXECUTOR_NICENESS_INCREMENT=5  # default: 2
+      #- DEBUG=1  # debug logging, default: 0
+# ↑------ Advanced settings ------↑ #
+#
+#
+volumes:
+  config:
