@@ -1,7 +1,11 @@
 # Please read https://github.com/Rongronggg9/RSS-to-Telegram-Bot/blob/master/docs/deployment-guide.md for more details.
 services:
   main:
+    extends:
+      file: ../compose-security-baseline/hardening.yml
+      service: hardened-medium
     image: rongronggg9/rss-to-telegram
+    cpu_shares: 256
     restart: unless-stopped
     volumes:
       - config:/app/config
