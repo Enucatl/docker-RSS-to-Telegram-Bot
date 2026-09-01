@@ -14,10 +14,11 @@ services:
     environment:
       - API_HASH
       - API_ID
+      - HTTP_CONCURRENCY=128  # default: 1024
       - MANAGER
+      - MPLCONFIGDIR=/tmp/matplotlib
       - TABLE_TO_IMAGE=1  # default: 0
       - TOKEN
-      - MPLCONFIGDIR=/tmp/matplotlib
       #- ERROR_LOGGING_CHAT=-1001234567890  # default: the first MANAGER
       #- MULTIUSER=0  # default: 1
       #- CRON_SECOND=30  # 0-59, default: 0
@@ -32,7 +33,6 @@ services:
       #- PROXY_BYPASS_PRIVATE=1  # default: 0
       #- PROXY_BYPASS_DOMAINS=example.com;example.net
       #- HTTP_TIMEOUT=30  # default: 12
-      #- HTTP_CONCURRENCY=0  # default: 1024
       #- HTTP_CONCURRENCY_PER_HOST=0  # default: 16
       #- HTTP_MAX_LINE_SIZE=32768  # default: 16384
       #- HTTP_MAX_FIELD_SIZE=32768  # default: 16384
